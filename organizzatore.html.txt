@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Organizzatore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pagina Organizzatore</h1>
+        <p>Modifica i dettagli delle prenotazioni:</p>
+        
+        <table>
+            <tr>
+                <th>Data</th>
+                <th>Numero di partecipanti</th>
+                <th>Gruppo</th>
+            </tr>
+            <tr>
+                <td>21 Marzo</td>
+                <td><input type="number" value="6" /></td>
+                <td><input type="text" value="Gruppo 1" /></td>
+            </tr>
+            <tr>
+                <td>22 Marzo</td>
+                <td><input type="number" value="5" /></td>
+                <td><input type="text" value="Gruppo 2" /></td>
+            </tr>
+            <tr>
+                <td>23 Marzo</td>
+                <td><input type="number" value="5" /></td>
+                <td><input type="text" value="Gruppo 3" /></td>
+            </tr>
+        </table>
+        
+        <button class="button">Genera Link per Condivisione</button>
+    </div>
+</body>
+</html>
