@@ -65,3 +65,18 @@
    };
    firebase.initializeApp(firebaseConfig);
 </script>
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Password">
+<button id="signup">Registrati</button>
+
+<script>
+   document.getElementById('signup').onclick = function () {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(function(userCredential) {
+         console.log('Registrato: ' + userCredential.user.email);
+      }).catch(function(error) {
+         console.log(error.message);
+      });
+   }
+</script>
