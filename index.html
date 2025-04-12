@@ -80,3 +80,69 @@
       });
    }
 </script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+// Configurazione di Firebase
+const firebaseConfig = {
+    apiKey: "TUO_API_KEY",
+    authDomain: "TUO_AUTH_DOMAIN",
+    projectId: "TUO_PROJECT_ID",
+    storageBucket: "TUO_STORAGE_BUCKET",
+    messagingSenderId: "TUO_MESSAGING_SENDER_ID",
+    appId: "TUO_APP_ID"
+};
+
+// Inizializza Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+// Funzione per la registrazione dell'utente
+document.getElementById('registerButton').addEventListener('click', function () {
+    const email = document.getElementById('emailInput').value;
+    const password = document.getElementById('passwordInput').value;
+
+    // Registra l'utente con email e password
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Invia la verifica all'email
+            const user = userCredential.user;
+            user.sendEmailVerification()
+                .then(() => {
+                    alert('Controlla la tua email per verificare l\'account!');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert('Si è verificato un errore durante l\'invio dell\'email di verifica.');
+                });
+        })
+        .catch((error) => {
+            console.error(error);
+            alert('Errore durante la registrazione: ' + error.message);
+        });
+});
+<!-- Modulo di registrazione -->
+<input type="email" id="emailInput" placeholder="Email" required>
+<input type="password" id="passwordInput" placeholder="Password" required>
+<button id="registerButton">Registrati</button>
+// Funzione di login
+document.getElementById('loginButton').addEventListener('click', function () {
+    const email = document.getElementById('loginEmailInput').value;
+    const password = document.getElementById('loginPasswordInput').value;
+
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            if (user.emailVerified) {
+                alert('Benvenuto!');
+            } else {
+                alert('Devi verificare la tua email prima di accedere.');
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+            alert('Errore durante il login: ' + error.message);
+        });
+});
+<!-- Modulo di login -->
+<input type="email" id="loginEmailInput" placeholder="Email" required>
+<input type="password" id="loginPasswordInput" placeholder="Password" required>
+<button id="loginButton">Accedi</button>
