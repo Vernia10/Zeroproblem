@@ -1,0 +1,21 @@
+﻿<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDEffGO_xVcm1AZVHozQi0DIqtjFYOGPCU",
+    authDomain: "zeroproblem-6f955.firebaseapp.com",
+    projectId: "zeroproblem-6f955",
+    storageBucket: "zeroproblem-6f955.firebasestorage.app",
+    messagingSenderId: "110678983142",
+    appId: "1:110678983142:web:bbedbb037eaf6622485627"
+  };
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
